@@ -19,6 +19,9 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
 
 - **OOPs Principles:**
   - Object-Oriented Programming principles are followed for a structured and modular codebase.
+  
+- **Encapsulation with Protected Variables:**
+  - Protected variables (prefixed with a single underscore) are used within the classes to encapsulate internal state.
 
 - **Game Moves Recording:**
   - All game moves are recorded in a text file.

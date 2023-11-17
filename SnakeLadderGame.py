@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
 import random
 import json
 import os
@@ -52,17 +50,17 @@ class Ladder:
 # Snake and Ladder game initialization
 class SnakesAndLaddersGame:
     def __init__(self):
-        self.grid_size = 0
-        self.num_players = 0
-        self.players = []
-        self.snakes = {}
-        self.ladders = {}
-        self.board = []
-        self.player_positions = {}
-        self.game_loaded = False
-        self.dice_rolls = 0
+        self._grid_size = 0
+        self._num_players = 0
+        self._players = []
+        self._snakes = {}
+        self._ladders = {}
+        self._board = []
+        self._player_positions = {}
+        self._game_loaded = False
+        self._dice_rolls = 0
 
-    # Showing game menu
+    # Method for showing game menu
     def game_menu(self):
         if os.path.exists(game_content):
             try:
@@ -91,7 +89,7 @@ class SnakesAndLaddersGame:
                     if gameload == "1":
                         print("Loading the saved game...")
                         self.load_game_state()
-                        self.game_loaded = True
+                        self._game_loaded = True
                         print("Game successfully loaded. Let's continue!")
                         self.play_game()
                         return
@@ -140,18 +138,18 @@ class SnakesAndLaddersGame:
                 print("You have chosen to quit the game. Goodbye!")
                 sys.exit()
 
-    # Configuring game settings by taking input from the user
+    # Method for Configuring game settings by taking input from the user
     def configure_game(self):
         try:
             # Initialize game board & player
-            self.grid_size = int(input("Enter the size of the playing grid (n x n): "))
-            if self.grid_size <= 0:
+            self._grid_size = int(input("Enter the size of the playing grid (n x n): "))
+            if self._grid_size <= 0:
                 raise ValueError("Please enter a positive integer.")
-            self.num_players = int(input("Enter the number of players (2, 3, or 4): "))
-            if self.num_players < 2:
+            self._num_players = int(input("Enter the number of players (2, 3, or 4): "))
+            if self._num_players < 2:
                 raise InvalidNumberOfPlayers("At least 2 players are needed.")
             # Initialize players
-            self.players = [Player(f"Player {i+1}") for i in range(self.num_players)]
+            self._players = [Player(f"Player {i+1}") for i in range(self._num_players)]
 
             # Initialize snakes
             num_snakes = int(input("Enter the number of snakes: "))
@@ -165,13 +163,13 @@ class SnakesAndLaddersGame:
                         "Start should be more than end position"
                     )
                 elif (
-                    start > self.grid_size * self.grid_size
-                    or end > self.grid_size * self.grid_size
+                    start > self._grid_size * self._grid_size
+                    or end > self._grid_size * self._grid_size
                 ):
                     raise InvalidLadderPositionError(
-                        f"Position can't exceed grid's size {self.grid_size * self.grid_size}"
+                        f"Position can't exceed grid's size {self._grid_size * self._grid_size}"
                     )
-                self.snakes[start] = end
+                self._snakes[start] = end
 
             # Initialize ladders
             num_ladders = int(input("Enter the number of ladders: "))
@@ -185,19 +183,19 @@ class SnakesAndLaddersGame:
                         "Start should be less than end position"
                     )
                 elif (
-                    start > self.grid_size * self.grid_size
-                    or end > self.grid_size * self.grid_size
+                    start > self._grid_size * self._grid_size
+                    or end > self._grid_size * self._grid_size
                 ):
                     raise InvalidLadderPositionError(
-                        f"Position can't exceed grid's size {self.grid_size * self.grid_size}"
+                        f"Position can't exceed grid's size {self._grid_size * self._grid_size}"
                     )
-                self.ladders[start] = end
+                self._ladders[start] = end
 
             # Initialize the game board
-            self.board = []
-            for i in range(self.grid_size):
-                row = [0] * self.grid_size
-                self.board.append(row)
+            self._board = []
+            for i in range(self._grid_size):
+                row = [0] * self._grid_size
+                self._board.append(row)
         except InvalidNumberOfPlayers as e:
             print(f"You have entered an invalid number of players: {e}")
             print("Starting the game again")
@@ -219,12 +217,13 @@ class SnakesAndLaddersGame:
             print("Starting the game again!")
             self.game_menu()
 
+    # Method for playing the game
     def play_game(self):
         print("Game Started!")
-        if self.game_loaded:
+        if self._game_loaded:
             self.show_game_state()
         while True:
-            for player in self.players:
+            for player in self._players:
                 key = input(
                     f"\n{player.name}'s turn now!\n"
                     "1. Press Enter to roll the dice...\n"
@@ -242,7 +241,7 @@ class SnakesAndLaddersGame:
                     print("You have chosen to quit the game. Goodbye!")
                     sys.exit()
                 dice_roll = random.randint(1, 6)
-                self.dice_rolls += 1
+                self._dice_rolls += 1
                 print("==========================")
                 print(f"{player.name} rolled a {dice_roll}.")
 
@@ -255,7 +254,7 @@ class SnakesAndLaddersGame:
                     player, current_position
                 )
                 # Check for win condition
-                if current_position == self.grid_size * self.grid_size:
+                if current_position == self._grid_size * self._grid_size:
                     print(f"{player.name} has won!")
                     self.record_game(player.name)
                     print("Game has been recored successfully")
@@ -264,7 +263,7 @@ class SnakesAndLaddersGame:
                     return
                 else:
                     print(
-                        f"To win, you need to land on position {self.grid_size * self.grid_size}. Keep going!"
+                        f"To win, you need to land on position {self._grid_size * self._grid_size}. Keep going!"
                     )
 
     # Method to record a move in the text file
@@ -278,101 +277,101 @@ class SnakesAndLaddersGame:
     def show_game_state(self):
         print("===========================")
         print("Here is the state of your saved game")
-        print(f"Game Grid Size: {self.grid_size}, Total Players: {len(self.players)}")
+        print(f"Game Grid Size: {self._grid_size}, Total Players: {len(self._players)}")
         print("---- Current Postions---- ")
-        for player in self.players:
-            if player.name in self.player_positions:
+        for player in self._players:
+            if player.name in self._player_positions:
                 print(
-                    f"{player.name} is now at position {self.player_positions[player.name]}."
+                    f"{player.name} is now at position {self._player_positions[player.name]}."
                 )
             else:
                 print(f"{player.name} has not moved yet.")
         print("---- Snakes -----")
-        for snake in self.snakes:
-            print(f"Snake at {snake} leads to {self.snakes[snake]}")
+        for snake in self._snakes:
+            print(f"Snake at {snake} leads to {self._snakes[snake]}")
         print("---- Ladders---- ")
-        for ladder in self.ladders:
-            print(f"Ladder at {ladder} leads to {self.ladders[ladder]}")
+        for ladder in self._ladders:
+            print(f"Ladder at {ladder} leads to {self._ladders[ladder]}")
 
-    # Move the player on the board based on dice roll
+    # Method to move the player on the board based on dice roll
     def move_player(self, player, steps):
-        if self.player_positions and player.name in self.player_positions:
-            newstate = self.player_positions[player.name] + steps
+        if self._player_positions and player.name in self._player_positions:
+            newstate = self._player_positions[player.name] + steps
             # If step is more than grid's size then it will be discarded
-            if newstate > self.grid_size * self.grid_size:
+            if newstate > self._grid_size * self._grid_size:
                 print(
-                    f"Oops! Your move {newstate} exceeds the grid size {self.grid_size * self.grid_size}. You need to land exactly on the final position. Try again."
+                    f"Oops! Your move {newstate} exceeds the grid size {self._grid_size * self._grid_size}. You need to land exactly on the final position. Try again."
                 )
-                return self.player_positions[player.name]
-            self.record_move(player, steps, self.player_positions[player.name], newstate)
-            self.player_positions[player.name] = newstate
-            return self.player_positions[player.name]
+                return self._player_positions[player.name]
+            self.record_move(player, steps, self._player_positions[player.name], newstate)
+            self._player_positions[player.name] = newstate
+            return self._player_positions[player.name]
         else:
             # If step is more than grid's size then it will be discarded
-            if steps > self.grid_size * self.grid_size:
+            if steps > self._grid_size * self._grid_size:
                 print(
-                    f"Oops! Your move {steps} exceeds the grid size {self.grid_size * self.grid_size}. You need to land exactly on the final position. Try again."
+                    f"Oops! Your move {steps} exceeds the grid size {self._grid_size * self._grid_size}. You need to land exactly on the final position. Try again."
                 )
-                return self.player_positions[player.name]
-            self.player_positions[player.name] = steps
-            return self.player_positions[player.name]
+                return self._player_positions[player.name]
+            self._player_positions[player.name] = steps
+            return self._player_positions[player.name]
 
-    # Check if the player landed on a snake or ladder
+    # Method to check if the player landed on a snake or ladder
     def check_snakes_and_ladders(self, player, position):
-        if position in self.snakes:
+        if position in self._snakes:
             print(f"Oops! Snake found at {position}")
-            self.player_positions[player.name] = self.snakes[position]
-            print(f"{player.name} is now at position {self.snakes[position]}.")
-            return self.snakes[position]
+            self._player_positions[player.name] = self._snakes[position]
+            print(f"{player.name} is now at position {self._snakes[position]}.")
+            return self._snakes[position]
 
-        elif position in self.ladders:
+        elif position in self._ladders:
             print(f"Wow! Ladder found at {position}")
-            self.player_positions[player.name] = self.ladders[position]
-            print(f"{player.name} is now at position {self.ladders[position]}.")
-            return self.ladders[position]
+            self._player_positions[player.name] = self._ladders[position]
+            print(f"{player.name} is now at position {self._ladders[position]}.")
+            return self._ladders[position]
         return position
 
-    # Saving game state
+    # Method for saving game state
     def save_game_state(self, filename=game_content):
         game_state = {
-            "grid_size": self.grid_size,
-            "num_players": self.num_players,
-            "players": [player.name for player in self.players],
-            "snakes": self.snakes,
-            "ladders": self.ladders,
-            "player_positions": self.player_positions,
-            "dice_rolls": self.dice_rolls,
+            "grid_size": self._grid_size,
+            "num_players": self._num_players,
+            "players": [player.name for player in self._players],
+            "snakes": self._snakes,
+            "ladders": self._ladders,
+            "player_positions": self._player_positions,
+            "dice_rolls": self._dice_rolls,
         }
 
         with open(game_content, "w") as file:
             json.dump(game_state, file)
 
-    # Loading saved game state
+    # Method for loading saved game state
     def load_game_state(self, filename=game_content):
         try:
             with open(filename, "r") as file:
                 game_state = json.load(file)
 
-            self.grid_size = game_state["grid_size"]
-            self.num_players = game_state["num_players"]
-            self.players = [Player(name) for name in game_state["players"]]
-            self.snakes = game_state["snakes"]
-            self.ladders = game_state["ladders"]
-            self.player_positions = game_state["player_positions"]
-            self.dice_rolls = game_state["dice_rolls"]
+            self._grid_size = game_state["grid_size"]
+            self._num_players = game_state["num_players"]
+            self._players = [Player(name) for name in game_state["players"]]
+            self._snakes = game_state["snakes"]
+            self._ladders = game_state["ladders"]
+            self._player_positions = game_state["player_positions"]
+            self._dice_rolls = game_state["dice_rolls"]
         except FileNotFoundError:
             print(f"Error: The file {filename} does not exist.")
         except json.JSONDecodeError:
             print(f"Error: Failed to decode JSON in {filename}.")
 
-    # Recording all game
+    # Method for recording every game
     def record_game(self, winning_player):
         record = {
             "timestamp": datetime.now().isoformat(),
-            "players": [{"name": player.name} for player in self.players],
-            "dice_rolls": self.dice_rolls,
-            "snakes": self.snakes,
-            "ladders": self.ladders,
+            "players": [{"name": player.name} for player in self._players],
+            "dice_rolls": self._dice_rolls,
+            "snakes": self._snakes,
+            "ladders": self._ladders,
             "winning_player": winning_player,
         }
         try:
