@@ -1,0 +1,40 @@
+[
+  {
+    "timestamp": "2023-11-17T19:42:49.205603",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 25,
+    "snakes": {
+      "4": 1
+    },
+    "ladders": {
+      "2": 6
+    },
+    "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-17T19:43:33.341594",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 10,
+    "snakes": {
+      "4": 1
+    },
+    "ladders": {
+      "3": 6
+    },
+    "winning_player": "Player 2"
+  }
+]
