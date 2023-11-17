@@ -17,7 +17,7 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
 - **Exception Handling:**
   - Proper exception handling is implemented to handle user inputs and potential errors.
 
-- **OOP Principles:**
+- **OOPs Principles:**
   - Object-Oriented Programming principles are followed for a structured and modular codebase.
 
 - **Game Moves Recording:**
@@ -38,7 +38,7 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
 
 - **`snakes_and_ladders.py`:** Main Python script containing the game implementation.
 
-- **`game_state.json`:** File to store the current game state. This JSON file includes information about the current state of the game, such as the grid size, number of players, player positions, snakes, and ladders.
+- **`game_states.json`:** File to store the current game state. This JSON file includes information about the current state of the game, such as the grid size, number of players, player positions, snakes, and ladders.
 
 - **`game_records.json`:** File to store past game records. This JSON file keeps a record of each game played, including timestamps, player names, dice rolls, snakes, ladders, and the winning player.
 

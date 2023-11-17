@@ -7,7 +7,7 @@ from datetime import datetime
 import sys
 
 moves_history_file = "moves_history.txt"
-game_content = "game_state.json"
+game_content = "game_states.json"
 game_record = "game_records.json"
 
 
