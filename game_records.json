@@ -113,5 +113,168 @@
       "5": 11
     },
     "winning_player": "Player 1"
+  },
+  {
+    "timestamp": "2023-11-18T00:51:30.987257",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 10,
+    "snakes": {
+      "2": 1
+    },
+    "ladders": {
+      "1": 4
+    },
+    "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-18T00:52:30.808640",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 3,
+    "snakes": {
+      "4": 1
+    },
+    "ladders": {
+      "2": 4
+    },
+    "winning_player": "Player 1"
+  },
+  {
+    "timestamp": "2023-11-18T00:54:52.949860",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 5,
+    "snakes": {
+      "5": 1,
+      "4": 2
+    },
+    "ladders": {
+      "2": 5
+    },
+    "winning_player": "Player 1"
+  },
+  {
+    "timestamp": "2023-11-18T00:59:33.415414",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 13,
+    "snakes": {
+      "6": 2,
+      "7": 3,
+      "5": 1,
+      "8": 3
+    },
+    "ladders": {
+      "2": 6
+    },
+    "winning_player": "Player 1"
+  },
+  {
+    "timestamp": "2023-11-18T00:59:47.944460",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 14,
+    "snakes": {
+      "6": 2,
+      "7": 3,
+      "5": 1,
+      "8": 3
+    },
+    "ladders": {
+      "2": 6
+    },
+    "winning_player": "Player 1"
+  },
+  {
+    "timestamp": "2023-11-18T01:00:31.305460",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 12,
+    "snakes": {
+      "5": 2,
+      "7": 3
+    },
+    "ladders": {
+      "1": 6
+    },
+    "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-18T01:12:55.968350",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 4,
+    "snakes": {
+      "8": 2,
+      "7": 3,
+      "6": 4
+    },
+    "ladders": {
+      "2": 5
+    },
+    "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-18T01:13:49.026199",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 5,
+    "snakes": {
+      "5": 2
+    },
+    "ladders": {
+      "1": 6,
+      "2": 7
+    },
+    "winning_player": "Player 1"
   }
 ]

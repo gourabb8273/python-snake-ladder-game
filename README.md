@@ -19,7 +19,7 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
 
 - **OOPs Principles:**
   - Object-Oriented Programming principles are followed for a structured and modular codebase.
-  
+
 - **Encapsulation with Protected Variables:**
   - Protected variables (prefixed with a single underscore) are used within the classes to encapsulate internal state.
 
@@ -35,11 +35,12 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/gourabb8273/python-snake-ladder-game.git
-   cd snakes-and-ladders-game
+   cd python-snake-ladder-game
+   python3 snake_ladder_game.py
 
 ## Files and Directories
 
-- **`snakes_and_ladders.py`:** Main Python script containing the game implementation.
+- **`snakes_ladder_game.py`:** Main Python script containing the game implementation.
 
 - **`game_states.json`:** File to store the current game state. This JSON file includes information about the current state of the game, such as the grid size, number of players, player positions, snakes, and ladders.
 

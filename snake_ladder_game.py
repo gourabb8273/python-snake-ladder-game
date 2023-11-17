@@ -212,6 +212,9 @@ class SnakesAndLaddersGame:
             print("Invalid input. Please enter a positive integer.")
             print("Starting the game again")
             self.game_menu()
+        except KeyboardInterrupt:
+            print("\nProgram interrupted! Stopping the game...")
+            sys.exit()
         except:
             print(f"An unexpected exception occurred: Please enter valid input")
             print("Starting the game again!")
@@ -251,7 +254,7 @@ class SnakesAndLaddersGame:
                 print("==========================")
                 # Check for snakes and ladders
                 current_position = self.check_snakes_and_ladders(
-                    player, current_position
+                    player, current_position, dice_roll
                 )
                 # Check for win condition
                 if current_position == self._grid_size * self._grid_size:
@@ -267,11 +270,14 @@ class SnakesAndLaddersGame:
                     )
 
     # Method to record a move in the text file
-    def record_move(self, player, dice_roll, current_position, final_position):
-        timestamp = datetime.now().isoformat()
-        move_details = f"{timestamp}: {player.name} rolled a {dice_roll}. Moved from {current_position} to {final_position}.\n"
-        with open(moves_history_file, "a") as file:
-            file.write(move_details)
+    def record_move(self, player, dice_roll, current_position, final_position, move_type):
+        try:
+            timestamp = datetime.now().isoformat()
+            move_details = f"{timestamp}: {player.name} rolled a {dice_roll}, Moved from {current_position} to {final_position}, Move type : {move_type}\n"
+            with open(moves_history_file, "a") as file:
+                file.write(move_details)
+        except Exception as e:
+            print(f"An error occurred while recording the move: {e}")
         
     # Method to show game state after resuming
     def show_game_state(self):
@@ -303,7 +309,7 @@ class SnakesAndLaddersGame:
                     f"Oops! Your move {newstate} exceeds the grid size {self._grid_size * self._grid_size}. You need to land exactly on the final position. Try again."
                 )
                 return self._player_positions[player.name]
-            self.record_move(player, steps, self._player_positions[player.name], newstate)
+            self.record_move(player, steps, self._player_positions[player.name], newstate, "Normal Dice")
             self._player_positions[player.name] = newstate
             return self._player_positions[player.name]
         else:
@@ -317,15 +323,17 @@ class SnakesAndLaddersGame:
             return self._player_positions[player.name]
 
     # Method to check if the player landed on a snake or ladder
-    def check_snakes_and_ladders(self, player, position):
+    def check_snakes_and_ladders(self, player, position, steps):
         if position in self._snakes:
             print(f"Oops! Snake found at {position}")
+            self.record_move(player, steps, self._player_positions[player.name], self._snakes[position], "Snake")
             self._player_positions[player.name] = self._snakes[position]
             print(f"{player.name} is now at position {self._snakes[position]}.")
             return self._snakes[position]
 
         elif position in self._ladders:
             print(f"Wow! Ladder found at {position}")
+            self.record_move(player, steps, self._player_positions[player.name], self._ladders[position], "Ladder")
             self._player_positions[player.name] = self._ladders[position]
             print(f"{player.name} is now at position {self._ladders[position]}.")
             return self._ladders[position]

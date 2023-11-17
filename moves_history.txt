@@ -1,7 +1,36 @@
-2023-11-17T21:54:32.280616: Player 2 rolled a 3. Moved from 1 to 4.
-2023-11-17T21:54:43.382612: Player 2 rolled a 5. Moved from 4 to 9.
-2023-11-18T00:35:19.471529: Player 1 rolled a 1. Moved from 3 to 4.
-2023-11-18T00:35:20.291735: Player 2 rolled a 3. Moved from 4 to 7.
-2023-11-18T00:35:21.277249: Player 1 rolled a 1. Moved from 4 to 5.
-2023-11-18T00:35:22.212676: Player 2 rolled a 1. Moved from 7 to 8.
-2023-11-18T00:35:42.934131: Player 1 rolled a 5. Moved from 11 to 16.
+2023-11-18T01:08:54.219322: Player 1 rolled a 6. Moved from 6 to 2. Move type : Snake
+2023-11-18T01:08:57.952025: Player 2 rolled a 6. Moved from 6 to 2. Move type : Snake
+2023-11-18T01:09:01.158787: Player 1 rolled a 6. Moved from 2 to 8. Move type : Normal Dice
+2023-11-18T01:09:01.161694: Player 1 rolled a 6. Moved from 8 to 2. Move type : Snake
+2023-11-18T01:09:01.733739: Player 2 rolled a 6. Moved from 2 to 8. Move type : Normal Dice
+2023-11-18T01:09:01.736126: Player 2 rolled a 6. Moved from 8 to 2. Move type : Snake
+2023-11-18T01:09:02.269661: Player 1 rolled a 4. Moved from 2 to 6. Move type : Normal Dice
+2023-11-18T01:09:02.272074: Player 1 rolled a 4. Moved from 6 to 2. Move type : Snake
+2023-11-18T01:09:02.752522: Player 2 rolled a 4. Moved from 2 to 6. Move type : Normal Dice
+2023-11-18T01:09:02.755151: Player 2 rolled a 4. Moved from 6 to 2. Move type : Snake
+2023-11-18T01:09:03.219651: Player 1 rolled a 2. Moved from 2 to 4. Move type : Normal Dice
+2023-11-18T01:09:03.670940: Player 2 rolled a 1. Moved from 2 to 3. Move type : Normal Dice
+2023-11-18T01:11:34.379549: Player 1 rolled a 1, Moved from 4 to 5, Move type : Normal Dice
+2023-11-18T01:11:39.634529: Player 2 rolled a 4, Moved from 2 to 6, Move type : Normal Dice
+2023-11-18T01:11:41.867691: Player 1 rolled a 3, Moved from 5 to 8, Move type : Normal Dice
+2023-11-18T01:11:41.870689: Player 1 rolled a 3, Moved from 8 to 2, Move type : Snake
+2023-11-18T01:11:44.402462: Player 2 rolled a 2, Moved from 6 to 8, Move type : Normal Dice
+2023-11-18T01:11:44.404537: Player 2 rolled a 2, Moved from 8 to 2, Move type : Snake
+2023-11-18T01:11:50.193695: Player 1 rolled a 2, Moved from 2 to 4, Move type : Normal Dice
+2023-11-18T01:11:51.456277: Player 2 rolled a 6, Moved from 2 to 8, Move type : Normal Dice
+2023-11-18T01:11:51.457017: Player 2 rolled a 6, Moved from 8 to 2, Move type : Snake
+2023-11-18T01:11:52.201238: Player 1 rolled a 1, Moved from 4 to 5, Move type : Normal Dice
+2023-11-18T01:11:52.828554: Player 2 rolled a 4, Moved from 2 to 6, Move type : Normal Dice
+2023-11-18T01:11:53.360700: Player 1 rolled a 3, Moved from 5 to 8, Move type : Normal Dice
+2023-11-18T01:11:53.362923: Player 1 rolled a 3, Moved from 8 to 2, Move type : Snake
+2023-11-18T01:11:53.848684: Player 2 rolled a 2, Moved from 6 to 8, Move type : Normal Dice
+2023-11-18T01:11:53.852981: Player 2 rolled a 2, Moved from 8 to 2, Move type : Snake
+2023-11-18T01:11:54.417236: Player 1 rolled a 4, Moved from 2 to 6, Move type : Normal Dice
+2023-11-18T01:11:55.033582: Player 2 rolled a 1, Moved from 2 to 3, Move type : Normal Dice
+2023-11-18T01:12:53.144259: Player 2 rolled a 6, Moved from 6 to 4, Move type : Snake
+2023-11-18T01:12:55.274432: Player 1 rolled a 4, Moved from 3 to 7, Move type : Normal Dice
+2023-11-18T01:12:55.275333: Player 1 rolled a 4, Moved from 7 to 3, Move type : Snake
+2023-11-18T01:12:55.967263: Player 2 rolled a 5, Moved from 4 to 9, Move type : Normal Dice
+2023-11-18T01:13:43.427441: Player 2 rolled a 2, Moved from 2 to 7, Move type : Ladder
+2023-11-18T01:13:45.426692: Player 1 rolled a 1, Moved from 3 to 4, Move type : Normal Dice
+2023-11-18T01:13:49.022598: Player 1 rolled a 5, Moved from 4 to 9, Move type : Normal Dice
