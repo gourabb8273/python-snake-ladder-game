@@ -55,5 +55,44 @@
       "2": 4
     },
     "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-17T21:30:50.361768",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 5,
+    "snakes": {
+      "5": 2,
+      "3": 1
+    },
+    "ladders": {
+      "2": 5
+    },
+    "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-17T21:54:43.385351",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 7,
+    "snakes": {
+      "3": 1
+    },
+    "ladders": {
+      "3": 5
+    },
+    "winning_player": "Player 2"
   }
 ]
