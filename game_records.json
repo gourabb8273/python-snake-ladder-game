@@ -36,5 +36,24 @@
       "3": 6
     },
     "winning_player": "Player 2"
+  },
+  {
+    "timestamp": "2023-11-17T21:17:16.467442",
+    "players": [
+      {
+        "name": "Player 1"
+      },
+      {
+        "name": "Player 2"
+      }
+    ],
+    "dice_rolls": 8,
+    "snakes": {
+      "3": 1
+    },
+    "ladders": {
+      "2": 4
+    },
+    "winning_player": "Player 2"
   }
 ]

@@ -4,23 +4,24 @@ import random
 import json
 import os
 from datetime import datetime
+import sys
 
 game_content = "game_state.json"
 
 # Invalid number of player exception 
 class InvalidNumberOfPlayers(Exception):
-     def __init__(self):  
-        super().__init__()
+     def __init__(self,message):  
+        super().__init__(message)
 
 # Invalid snake position exception 
 class InvalidSnakePositionError(Exception):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,message):
+        super().__init__(message)
 
 # Invalid ladder position exception 
 class InvalidLadderPositionError(Exception):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,message):
+        super().__init__(message)
 
 # Player initialization 
 class Player:
@@ -80,6 +81,7 @@ class SnakesAndLaddersGame:
                         self.play_game()
                     elif(gameload == '3'):
                         print("You have chosen to quit the game. Goodbye!")
+                        sys.exit()
                     else:
                         print("Please choose a valid option (1 or 2).")
                         self.game_menu()
@@ -98,7 +100,7 @@ class SnakesAndLaddersGame:
                     self.play_game()
              else:
                  print("You have chosen to quit the game. Goodbye!")
-                 return
+                 sys.exit()
         else:
              gameload = input("!! ======== Welcome to Snakes and Ladders ======== !! \n"
                                     "No saved game found. Do you want to \n"
@@ -109,7 +111,7 @@ class SnakesAndLaddersGame:
                     self.configure_game()
              else:
                  print("You have chosen to quit the game. Goodbye!")
-                 return
+                 sys.exit()
 
     # Configuring game settings by taking input from the user
     def configure_game(self):
@@ -129,8 +131,7 @@ class SnakesAndLaddersGame:
                 start = int(input(f"Enter the starting position of the {ns + 1} snake: "))
                 end = int(input(f"Enter the ending position of the {ns + 1} snake: "))
                 if(not start>end):
-                    print("ddd")
-                    raise InvalidSnakePositionError("Invalid snake position! start should be more than end position")
+                    raise InvalidSnakePositionError("Start should be more than end position")
                 self.snakes[start] = end
 
             # Initialize ladders
@@ -139,7 +140,7 @@ class SnakesAndLaddersGame:
                 start = int(input(f"Enter the starting position of the {nl + 1} ladder: "))
                 end = int(input(f"Enter the ending position of the {nl + 1} ladder: "))
                 if not (start<end):
-                    raise InvalidLadderPositionError("Invalid ladder position! start should be less than end position")
+                    raise InvalidLadderPositionError("Start should be less than end position")
                 self.ladders[start] = end
 
             # Initialize the game board
@@ -173,14 +174,18 @@ class SnakesAndLaddersGame:
                 for player in self.players:
                     key = input(f"\n{player.name}'s turn now!\n"
                                  "1. Press Enter to roll the dice...\n"
-                                 "2. Press  '1' to save and quit the game: \n"
+                                 "2. Press '2' to save and quit the game: \n"
+                                 "3. Press '3' to quit the game: \n"
                                  "Enter your choice: ")
 
-                    if key == '1':
+                    if key == '2':
                         print("Saving game...")
                         self.save_game_state()
                         print("Game saved. Exiting.")
                         return
+                    elif key == '3':
+                        print("You have chosen to quit the game. Goodbye!")
+                        sys.exit()
                     dice_roll = random.randint(1, 6)
                     self.dice_rolls +=1
                     print("==========================")
@@ -209,7 +214,10 @@ class SnakesAndLaddersGame:
             print(f"Game Grid Size: {self.grid_size}, Total Players: {len(self.players)}")
             print("---- Current Postions---- ")
             for player in self.players:
-                print(f"{player.name} is now at position {self.player_positions[player.name]}.")
+                if player.name in self.player_positions:
+                     print(f"{player.name} is now at position {self.player_positions[player.name]}.")
+                else:
+                     print(f"{player.name} has not moved yet.")
             print("---- Snakes -----")
             for snake in self.snakes:
                 print(f"Snake at {snake} leads to {self.snakes[snake]}")
