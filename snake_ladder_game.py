@@ -166,7 +166,7 @@ class SnakesAndLaddersGame:
                     start > self._grid_size * self._grid_size
                     or end > self._grid_size * self._grid_size
                 ):
-                    raise InvalidLadderPositionError(
+                    raise InvalidSnakePositionError(
                         f"Position can't exceed grid's size {self._grid_size * self._grid_size}"
                     )
                 self._snakes[start] = end
@@ -239,6 +239,7 @@ class SnakesAndLaddersGame:
                     print("Saving game...")
                     self.save_game_state()
                     print("Game saved. Exiting.")
+                    sys.exit()
                     return
                 elif key == "3":
                     print("You have chosen to quit the game. Goodbye!")

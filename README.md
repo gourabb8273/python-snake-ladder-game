@@ -36,7 +36,7 @@ This project is an implementation of the classic Snakes and Ladders game in Pyth
    ```bash
    git clone https://github.com/gourabb8273/python-snake-ladder-game.git
    cd python-snake-ladder-game
-   python3 snake_ladder_game.py
+   python3 snake_ladder_game.py  (use python or python3 based on the system configuration)
 
 ## Files and Directories
 
